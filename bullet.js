@@ -10,10 +10,9 @@ class bullet{
     this.bbx = new bbox(this.x, this.y, 2*this.size, 2*this.size);
     this.xspd= 0;
     this.yspd = 0;
-
-
+    this.drawable = true;
     objects.push(this);
-
+    var itemIndex = objects.length - 1;
   }
 
 
@@ -23,7 +22,7 @@ class bullet{
     this.x += this.xspd;
     this.y += this.yspd;
     if(bcollision(this.bbx, this.x, this.y + this.yspd)) {
-      kill2(this);
+      kill(objects, this.itemIndex);
       hero.hp +=1;
 
       console.log("hit");
@@ -37,10 +36,10 @@ class bullet{
     circle(this.x,this.y,this.size);
   }
 }
-function kill2(entity){
+/*function kill2(entity){
   entity.size = 0;
   entity.x = -222;
   entity.y = -222;
   entity.xspd = 0;
   entity.yspd = 0;
-}
+}*/

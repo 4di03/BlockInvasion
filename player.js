@@ -16,7 +16,7 @@ class player {
     this.mspd = 10;
     this.xspd = 0;
     this.ammo = 5;
-
+    this.drawable = true;
     objects.push(this);
 
   }

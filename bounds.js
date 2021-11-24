@@ -10,7 +10,7 @@ class bbox {
     this.h = h;
     this.x2 = x+w;
     this.y2 = y+h;
-
+    
   }
   update(x, y){
     this.x1=x;

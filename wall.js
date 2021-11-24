@@ -9,6 +9,7 @@ class wall {
     this.y = y;
     this.size = 0.01197*window.innerWidth;
     this.bbx = new bbox(this.x, this.y, this.size, this.size);
+    this.drawable = true;
     objects.push(this);
     walls.push(this);
   }

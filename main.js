@@ -1,5 +1,3 @@
-/*  THIS CODE WAS WRITTEN IN SEVERAL FILES AND COMPILED INTO ONE FOR THE SAKE OF SUBMISSION, SEPERATE FILES ARE MARKED WITH COMMENTS AT THE BEGINNING OF THEIR CODE      */
-
 /// main.js
 
 
@@ -16,6 +14,9 @@ var framect = 0;
 var enemyct = 0;
 
 var n = 3000;
+
+var objects = [];
+var enemies = [];
 
 noStroke();
 canvas.style.left = "0px";
@@ -45,9 +46,19 @@ function gameOver(){
   if( hero.hp <= 0 || hero.x > window.innerWidth || hero.x + hero.size < 0 || hero.y >window.innerHeight){   //game over condition
        window.location.href = 'gameover.html';
      }
-
-
 }
+
+
+function kill(object){
+  object.size = 0;
+  object.x = -222;
+  object.y = -222;
+  object.xspd = 0;
+  object.yspd = 0;
+  object.drawable = false;
+}
+
+
 
 function writeStats(){
   ctx.font = "30px Arial";
@@ -116,10 +127,6 @@ function shoot(){
 }
 
 
-
-var objects = [];
-var enemies = [];
-
 for(var i=0; i<(0.01198*window.innerWidth); i++){
   new wall((window.innerWidth/3)+i*(0.01198*window.innerWidth), window.innerHeight*.2);
   new wall((window.innerWidth*.05)+ i*(0.01198*window.innerWidth),  window.innerHeight*.5);
@@ -167,7 +174,7 @@ function keyEnd(){
 function draw(){
   background(25, 25, 25);
   for (var i = 0; i<objects.length; i++) {
-    if(objects[i].draw) objects[i].draw();        //Youtube tutorial(https://www.youtube.com/watch?v=APivt7U4WP0)
+    if(objects[i].drawable == true) objects[i].draw();        //Youtube tutorial(https://www.youtube.com/watch?v=APivt7U4WP0)
   }
   hero.draw();
   writeStats();

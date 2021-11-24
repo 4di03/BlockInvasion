@@ -1,12 +1,5 @@
 // enemy.js
 
-function kill(object){
-  object.size = 0;
-  object.x = -122;
-  object.y = -122;
-  object.xspd = 0;
-  object.yspd = 0;
-}
 
 /*window.onload = function(){
 var enemy = new Image();
@@ -27,7 +20,8 @@ class enemy{
     this.disty = hero.y- this.y; // gets y distance from player
     this.xspd =this.distx/((Math.random() * 200) + 50); //makes enemies move in x-direction of player at random speed
     this.yspd =this.disty/((Math.random() * 200) + 50); //makes enemies move in y-direction of player at random speed
-
+    this.drawable = true;
+    
     objects.push(this);
     enemies.push(this);
   }
