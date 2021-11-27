@@ -7,16 +7,16 @@ class ammo{
   constructor(){
     this.x = Math.random()*window.innerWidth;
     this.y = Math.random()*window.innerHeight;
-    this.size = 15;
+    this.size = (15/1080)*height;
     this.bbx = new bbox(this.x, this.y, this.size, this.size);
     this.drawable = true;
     objects.push(this);
     ammunition.push(this);
 
-    var ground = wallCollision(this.bbx, this.x, this.y+1);
+    var ground = wallCollision(this.bbx, this.x, this.y+(1/1080)*height);
     if (!ground)                          // makes sure ammo spawns right above ground
       kill(this);
-    this.y += -45;
+    this.y += -(45/1080)*height;
 
 
   }

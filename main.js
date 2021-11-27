@@ -5,15 +5,18 @@ var canvas = document.getElementById("mycanvas");
 
 var ctx = canvas.getContext("2d");
 
-var width;
+var width = window.innerWidth;
 
-var height;
+var height = window.innerHeight;
 
 var framect = 0;
 
 var enemyct = 0;
 
 var n = 3000;
+
+
+var fontsize = (0.03*height).toString();
 
 var objects = [];
 var enemies = [];
@@ -61,19 +64,20 @@ function kill(object){
 
 
 function writeStats(){
-  ctx.font = "30px Arial";
+
+  ctx.font = fontsize +"px Arial";
   ctx.fillStyle = "green";
 
-  ctx.fillText("HP: "+hero.hp, 50, 50);
+  ctx.fillText("HP: "+hero.hp, 0.1*width, (50/1080)*height);
   ctx.fillStyle = "orange";
-  ctx.fillText("Ammo: "+hero.ammo, 200, 50);
+  ctx.fillText("Ammo: "+hero.ammo, 0.2*width , (50/1080)*height);
   ctx.fillStyle = "orange";
   var score = Math.round(framect/30);
   localStorage.setItem("score",score);
-  ctx.fillText("Score: "+ score, width-150, 50);
+  ctx.fillText("Score: "+ score, 0.8* width, (50/1080)*height);
   ctx.fillStyle = "red";
 
-  ctx.fillText("Difficulty: "+ diff, width-500, 50);
+  ctx.fillText("Difficulty: "+ diff, 0.6*width, (50/1080)*height);
 
 }
 
@@ -97,7 +101,7 @@ function spawnStuff(){
     }
 
 
-    if(framect % 10 === 0) { //spawns ammo
+    if(framect % 30 === 0) { //spawns ammo
           new ammo();
 
       }
@@ -125,14 +129,18 @@ function shoot(){
   }
 
 }
-
-
+// create the  walls
+new wall(width/4 , height/5, 0.5*width, height*0.034);
+new wall(width*0.05 , height/2, 0.3*width, height*0.034);
+new wall(width * 0.65 , height/2, 0.3*width, height*0.034);
+new wall(width/4 , (4/5) * height, 0.5*width, height*0.034);
+/*
 for(var i=0; i<(0.01198*window.innerWidth); i++){
   new wall((window.innerWidth/3)+i*(0.01198*window.innerWidth), window.innerHeight*.2);
   new wall((window.innerWidth*.05)+ i*(0.01198*window.innerWidth),  window.innerHeight*.5);
   new wall((window.innerWidth*.65)+i*(0.01198*window.innerWidth),  window.innerHeight*.5);
   new wall((window.innerWidth/3)+i*(0.01198*window.innerWidth),  window.innerHeight*.8);
-}
+}*/
 
 
 

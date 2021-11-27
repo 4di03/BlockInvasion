@@ -12,7 +12,7 @@ class enemy{
   constructor(){
     this.x =0 + ((Math.round(Math.random()))*window.innerWidth);//either spawns enemys at the left or right side of screen
     this.y= Math.random() * window.innerHeight;
-    this.size= (Math.random() *42) + 12;
+    this.size= (Math.random() * (42/1920)*width) + (12/1920)*width;
     this.bbx = new bbox(this.x, this.y, this.size, this.size);
     this.xspd = 0//(Math.random() < 0.5 ? -1 : 1)* Math.random() * 12;
     this.yspd = 0//(Math.random() < 0.5 ? -1 : 1) * Math.random() * 12;

@@ -5,15 +5,15 @@ class player {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.size = 64;
+    this.size = (64/1080) * height;
     this.hp = 5;
     this.bbx = new bbox(this.x, this.y, this.size, this.size);
 
     //physics
-    this.gravity = 5;
+    this.gravity = (5/1080)*height;
     this.yspd =0;
-    this.jspd = 60;
-    this.mspd = 10;
+    this.jspd = (60/1080)*height;
+    this.mspd = (10/750)*height;
     this.xspd = 0;
     this.ammo = 5;
     this.drawable = true;
@@ -57,10 +57,10 @@ class player {
     noFill();
     rectangle(this.x, this.y, this.size, this.size);
     fillColor(0,255,0);
-    rectangle(this.x+10, this.y+20,10, 3);
+    rectangle(this.x+(10/64)*this.size, this.y+(20/64)*this.size, (10/1920)*width, (3/1080)*height);
     fillColor(0,255,0);
-    rectangle(this.x + 45, this.y+20,10, 3);
-    circle(this.x+32, this.y+45, 10)
+    rectangle(this.x + (45/64)*this.size, this.y+(20/64)*this.size,(10/1920)*width, (3/1080)*height);
+    circle(this.x+(32/64)*this.size, this.y+(45/64)*this.size, (10/1920)*width);
     noFill();
     line()
 

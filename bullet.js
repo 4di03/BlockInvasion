@@ -6,7 +6,7 @@ class bullet{
   constructor(){
     this.x = hero.x;
     this.y = hero.y;
-    this.size= 12;
+    this.size= (12/1920)*width;
     this.bbx = new bbox(this.x, this.y, 2*this.size, 2*this.size);
     this.xspd= 0;
     this.yspd = 0;
