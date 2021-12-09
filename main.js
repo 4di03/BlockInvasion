@@ -198,5 +198,5 @@ function gameLoop(){
 
   }
 
-var target_fps = 60;
+var target_fps = 90;
 setInterval(gameLoop, 1000/target_fps);
