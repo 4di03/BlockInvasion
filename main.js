@@ -15,6 +15,17 @@ var enemyct = 0;
 
 var n = 3000;
 
+var ezbg = "./Images/background-easy.jpg"
+var mbg = "./Images/background-medium.jpg"
+var hbg = "./Images/background-hard.png"
+
+
+var Bkgd = new Image();
+Bkgd.src = ezbg;
+
+var mediumBkgd = new Image();
+
+var hardBkgd = new Image();
 
 var fontsize = (0.03*height).toString();
 
@@ -66,16 +77,18 @@ function kill(object){
 function writeStats(){
 
   ctx.font = fontsize +"px Arial";
-  ctx.fillStyle = "green";
+  ctx.fillStyle = "black";
 
   ctx.fillText("HP: "+hero.hp, 0.1*width, (50/1080)*height);
-  ctx.fillStyle = "orange";
+
   ctx.fillText("Ammo: "+hero.ammo, 0.2*width , (50/1080)*height);
-  ctx.fillStyle = "orange";
+
   var score = Math.round(framect/30);
   localStorage.setItem("score",score);
+
+
   ctx.fillText("Score: "+ score, 0.8* width, (50/1080)*height);
-  ctx.fillStyle = "red";
+
 
   ctx.fillText("Difficulty: "+ diff, 0.6*width, (50/1080)*height);
 
@@ -89,7 +102,8 @@ function spawnStuff(){
 
     else if( framect >= 900 && framect < 1800 && framect % 45 === 0){    // difficult gets harder every 15 seconds
       new enemy();
-      diff = "normal";
+      diff = "medium";
+      Bkgd.src = mbg;
     }
     else if( framect >= 1800 && framect < 2700 && framect % 30 === 0){
       new enemy();
@@ -98,6 +112,7 @@ function spawnStuff(){
     else if( framect >= 2700 && framect % 15 === 0){
       new enemy();
       diff = "good luck :)";
+      Bkgd.src = hbg;
     }
 
 
@@ -180,7 +195,9 @@ function keyEnd(){
 
 
 function draw(){
-  background(25, 25, 25);
+  //background(25, 25, 25);
+  Bkgd.onload = ctx.drawImage(Bkgd, 0, 0 , width, height);
+
   for (var i = 0; i<objects.length; i++) {
     if(objects[i].drawable == true) objects[i].draw();        //Youtube tutorial(https://www.youtube.com/watch?v=APivt7U4WP0)
   }

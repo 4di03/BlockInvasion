@@ -1,5 +1,6 @@
 /// bullet.js file
-
+var fball = new Image();
+fball.src= "./Images/fireball.jpg";
 
 var bullets = [];
 class bullet{
@@ -32,8 +33,14 @@ class bullet{
   }
   draw(){
     strokeColor(0, 0, 0);
-    fillColor(253,173,92);
-    circle(this.x,this.y,this.size);
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size,  2 * Math.PI, false);
+    ctx.fillStyle = "rgb(253,173,92)";
+    ctx.fill();
+    ctx.closePath();
+    /*ctx.clip();
+    ctx.drawImage(fball, 0 , 0);
+    ctx.restore();*/
   }
 }
 /*function kill2(entity){

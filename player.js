@@ -1,5 +1,6 @@
 //player.js
-
+var heroImg = new Image()
+heroImg.src = "./Images/hero.jpg"
 
 class player {
   constructor(x, y) {
@@ -53,7 +54,10 @@ class player {
 
   }
   draw(){
-    strokeColor(0, 255, 0);
+    
+    ctx.drawImage(heroImg, this.x , this.y, this.size, this.size);
+    
+    /*strokeColor(0, 255, 0);
     noFill();
     rectangle(this.x, this.y, this.size, this.size);
     fillColor(0,255,0);
@@ -63,7 +67,7 @@ class player {
     circle(this.x+(32/64)*this.size, this.y+(45/64)*this.size, (10/1920)*width);
     noFill();
     line()
-
+    */
   }
 }
 

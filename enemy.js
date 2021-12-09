@@ -7,6 +7,9 @@ enemy.src = "enemy.png";
 for (var b=0; b<enemies.length; b++)
   ctx.drawImage(enemies[b], enemies[b].x, enemies[b].y, enemies[b].size, enemies[b].size);
 }#*/
+var enemyImg = new Image()
+enemyImg.src = "./Images/enemy.jpg"
+
 
 class enemy{
   constructor(){
@@ -39,9 +42,11 @@ class enemy{
 
 
   draw(){
-    fillColor(255,0,0);
+    /*fillColor(255,0,0);
     noStroke();
     rectangle(this.x,this.y,this.size, this.size);
+*/
+    ctx.drawImage(enemyImg, this.x , this.y, this.size, this.size);
 
 
   }

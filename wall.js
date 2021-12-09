@@ -20,9 +20,10 @@ class wall {
   }
   draw(){
     strokeColor(255, 255, 255);
-    noFill();
     strokeSize(2);
+    fillColor(13, 14, 26);
     rectangle(this.x, this.y, this.w, this.l);
+    
   }
 }
 
