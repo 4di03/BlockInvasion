@@ -54,8 +54,22 @@ class player {
 
   }
   draw(){
-    
-    ctx.drawImage(heroImg, this.x , this.y, this.size, this.size);
+
+    ctx.save(); 
+    ctx.beginPath();
+    ctx.arc(this.x + (this.size/2), this.y + (this.size/2), (this.size/2) - 1, 0, Math.PI * 2, true);
+    ctx.closePath();
+    ctx.clip();
+
+    ctx.drawImage(heroImg, this.x, this.y, this.size, this.size);
+
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, (this.size/2) - 1, 0, Math.PI * 2, true);
+    ctx.clip();
+    ctx.closePath();
+    ctx.restore();
+
+    //ctx.drawImage(heroImg, this.x , this.y, this.size, this.size);
     
     /*strokeColor(0, 255, 0);
     noFill();
