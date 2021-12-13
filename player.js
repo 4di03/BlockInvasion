@@ -86,15 +86,13 @@ class player {
 }
 
 
-function collision(bbx, x, y){
+function collision(bbx, x, y, draw){
   var lastX = bbx.x1;
   var lastY = bbx.y1;
   bbx.update(x, y);
   var ret = false;
-  if(hero.bbx.collision(bbx)){
+  if(hero.bbx.collision(bbx) && draw){
     ret = true;
-
-
   }
   bbx.update(lastX, lastY);
   return ret;

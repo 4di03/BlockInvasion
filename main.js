@@ -64,11 +64,11 @@ function gameOver(){
 
 
 function kill(object){
-  object.size = 0;
+  /*object.size = 0;
   object.x = -222;
   object.y = -222;
   object.xspd = 0;
-  object.yspd = 0;
+  object.yspd = 0;*/
   object.drawable = false;
 }
 

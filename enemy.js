@@ -10,6 +10,9 @@ for (var b=0; b<enemies.length; b++)
 var enemyImg = new Image()
 enemyImg.src = "./Images/enemy.jpg"
 
+var deathImg = new Image()
+deathImg.src = "./Images/explode.png"
+
 
 class enemy{
   constructor(){
@@ -31,11 +34,13 @@ class enemy{
   step(){
     this.x += this.xspd;
     this.y += this.yspd;
-    if(collision(this.bbx, this.x, this.y + this.yspd)) {
+    if(collision(this.bbx, this.x, this.y + this.yspd, this.drawable)) {
       hero.hp += -1;
       kill(this);
       console.log("hero hurt");
+      
     }
+    
 
   }
   
@@ -60,9 +65,10 @@ function bcollision(bbx, x, y){
   var ret = false;
 for(var n = 0; n<enemies.length; n++){
   enemies[n].bbx.update(enemies[n].x, enemies[n].y);
-  if(enemies[n].bbx.collision(bbx)){
+  if(enemies[n].bbx.collision(bbx) && enemies[n].drawable){
       ret = true;
       kill(enemies[n]);
+      ctx.drawImage(deathImg, enemies[n].x, enemies[n].y);
   }
 
 }

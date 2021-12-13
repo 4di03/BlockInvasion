@@ -28,6 +28,8 @@ class bullet{
 
       console.log("hit");
 
+
+      
     }
 
   }

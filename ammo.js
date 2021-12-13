@@ -21,7 +21,7 @@ class ammo{
 
   }
   step(){
-    if(collision(this.bbx, this.x, this.y )){
+    if(collision(this.bbx, this.x, this.y, this.drawable)){
       hero.ammo +=1;
       kill(this);
     }
