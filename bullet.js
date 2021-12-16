@@ -23,7 +23,7 @@ class bullet{
 
     this.x += this.xspd;
     this.y += this.yspd;
-    if(bcollision(this.bbx, this.x, this.y + this.yspd)) {
+    if(bcollision(this.bbx, this.x, this.y)) {
       
       
       kill(this);

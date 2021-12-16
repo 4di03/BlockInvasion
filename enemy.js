@@ -50,10 +50,11 @@ class enemy{
     enemies.push(this);
   }
   step(){
+    if (this.drawable){
     this.x += this.xspd;
     this.y += this.yspd;
  
-    if(collision(this.bbx, this.x, this.y + this.yspd, this.drawable)) {
+    if(collision(this.bbx, this.x, this.y, this.drawable)) {
       hero.hp += -1;
       
       
@@ -64,7 +65,7 @@ class enemy{
     
 
   }
-  
+}
 
 
   draw(){
@@ -76,11 +77,17 @@ class enemy{
     if (this.drawable){
     ctx.drawImage(enemyImg, this.x , this.y, this.size, this.size);
     }else{
-      ctx.drawImage(deathImg, this.x, this.y, this.size, this.size);
-    }
+      ctx.drawImage(deathImg, this.x - (2 * this.size), this.y - (2 * this.size), 4* this.size, 4*this.size);
+      this.xspd = 0;
+      this.yspd = 0;
 
-    
-       
+      if(this.size <= 0){
+        this.size = 0;
+      }else{
+
+      this.size -= 1;
+      }
+  }   
 
   }
 
