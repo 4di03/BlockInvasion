@@ -195,16 +195,27 @@ function keyEnd(){
 
 
 function draw(){
-  //background(25, 25, 25);
+  background(25, 25, 25);
   Bkgd.onload = ctx.drawImage(Bkgd, 0, 0 , width, height);
-
+ 
   for (var i = 0; i<objects.length; i++) {
-    if(objects[i].drawable == true) objects[i].draw();        //Youtube tutorial(https://www.youtube.com/watch?v=APivt7U4WP0)
+    /*if(objects[i].drawable == true)*/ objects[i].draw();        //Youtube tutorial(https://www.youtube.com/watch?v=APivt7U4WP0)
   }
   hero.draw();
   writeStats();
-}
 
+/* death animations
+for(b in bullets){
+
+if(bcollision(b.bbx, b.x, b.y + b.yspd)) {
+      
+  ctx.drawImage(deathImg, 20, 20, 50, 50);
+  alert("hit");
+
+    
+  }
+}*/
+}
 
 
 function gameLoop(){
@@ -217,3 +228,7 @@ function gameLoop(){
 
 var target_fps = 90;
 setInterval(gameLoop, 1000/target_fps);
+
+// enemy death
+
+

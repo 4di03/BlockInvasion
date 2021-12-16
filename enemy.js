@@ -14,6 +14,24 @@ var deathImg = new Image()
 deathImg.src = "./Images/explode.png"
 
 
+function bcollision(bbx, x, y){
+  var lastX = bbx.x1;
+  var lastY = bbx.y1;
+  bbx.update(x, y);
+  var ret = false;
+for(var n = 0; n<enemies.length; n++){
+  enemies[n].bbx.update(enemies[n].x, enemies[n].y);
+  if(enemies[n].bbx.collision(bbx) && enemies[n].drawable){
+      ret = true;
+      kill(enemies[n]);
+    
+  }
+
+}
+  bbx.update(lastX, lastY);
+  return ret;
+}
+
 class enemy{
   constructor(){
     this.x =0 + ((Math.round(Math.random()))*window.innerWidth);//either spawns enemys at the left or right side of screen
@@ -34,8 +52,11 @@ class enemy{
   step(){
     this.x += this.xspd;
     this.y += this.yspd;
+ 
     if(collision(this.bbx, this.x, this.y + this.yspd, this.drawable)) {
       hero.hp += -1;
+      
+      
       kill(this);
       console.log("hero hurt");
       
@@ -50,28 +71,17 @@ class enemy{
     /*fillColor(255,0,0);
     noStroke();
     rectangle(this.x,this.y,this.size, this.size);
-*/
+*/     
+
+    if (this.drawable){
     ctx.drawImage(enemyImg, this.x , this.y, this.size, this.size);
+    }else{
+      ctx.drawImage(deathImg, this.x, this.y, this.size, this.size);
+    }
 
+    
+       
 
   }
 
-}
-
-function bcollision(bbx, x, y){
-  var lastX = bbx.x1;
-  var lastY = bbx.y1;
-  bbx.update(x, y);
-  var ret = false;
-for(var n = 0; n<enemies.length; n++){
-  enemies[n].bbx.update(enemies[n].x, enemies[n].y);
-  if(enemies[n].bbx.collision(bbx) && enemies[n].drawable){
-      ret = true;
-      kill(enemies[n]);
-      ctx.drawImage(deathImg, enemies[n].x, enemies[n].y);
-  }
-
-}
-  bbx.update(lastX, lastY);
-  return ret;
 }

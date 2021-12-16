@@ -28,9 +28,12 @@ class ammo{
 
   }
   draw(){
+
+    if(this.drawable){
     strokeColor(255, 255, 255);
     fillColor(0,0,255);
     strokeSize(2);
     rectangle(this.x, this.y, this.size, this.size);
   }
+}
 }

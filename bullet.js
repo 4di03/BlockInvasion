@@ -13,6 +13,7 @@ class bullet{
     this.yspd = 0;
     this.drawable = true;
     objects.push(this);
+    bullets.push(this);
     var itemIndex = objects.length - 1;
   }
 
@@ -23,11 +24,14 @@ class bullet{
     this.x += this.xspd;
     this.y += this.yspd;
     if(bcollision(this.bbx, this.x, this.y + this.yspd)) {
-      kill(objects, this.itemIndex);
+      
+      
+      kill(this);
       hero.hp +=1;
-
       console.log("hit");
-
+      
+  
+    
 
       
     }
@@ -40,15 +44,8 @@ class bullet{
     ctx.fillStyle = "rgb(253,173,92)";
     ctx.fill();
     ctx.closePath();
-    /*ctx.clip();
-    ctx.drawImage(fball, 0 , 0);
-    ctx.restore();*/
+
+    
+    
   }
 }
-/*function kill2(entity){
-  entity.size = 0;
-  entity.x = -222;
-  entity.y = -222;
-  entity.xspd = 0;
-  entity.yspd = 0;
-}*/

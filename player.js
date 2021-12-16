@@ -16,7 +16,7 @@ class player {
     this.jspd = (60/1080)*height;
     this.mspd = (10/750)*height;
     this.xspd = 0;
-    this.ammo = 5;
+    this.ammo = 50000;
     this.drawable = true;
     objects.push(this);
 
