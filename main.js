@@ -77,7 +77,7 @@ function kill(object){
 function writeStats(){
 
   ctx.font = fontsize +"px Arial";
-  ctx.fillStyle = "black";
+  ctx.fillStyle = "white";
 
   ctx.fillText("HP: "+hero.hp, 0.1*width, (50/1080)*height);
 
