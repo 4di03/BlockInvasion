@@ -5,8 +5,8 @@ fball.src= "./Images/fireball.jpg";
 var bullets = [];
 class bullet{
   constructor(){
-    this.x = hero.x;
-    this.y = hero.y;
+    this.x = hero.x + hero.size/2;
+    this.y = hero.y + hero.size/2;
     this.size= (12/1920)*width;
     this.bbx = new bbox(this.x, this.y, 2*this.size, 2*this.size);
     this.xspd= 0;
