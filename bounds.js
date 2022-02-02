@@ -1,5 +1,4 @@
 /// bounds.js file
-//Youtube Tutorial(https://www.youtube.com/watch?v=APivt7U4WP0)
 
 
 class bbox {
