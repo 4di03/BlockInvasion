@@ -175,7 +175,7 @@ function step(){
   framect++;
 
   for (var i = 0; i<objects.length; i++) {
-    if(objects[i].step) objects[i].step();      //Youtube Tutorial(https://www.youtube.com/watch?v=APivt7U4WP0)
+    if(objects[i].step) objects[i].step();      
 
 
   }
@@ -199,7 +199,7 @@ function draw(){
   Bkgd.onload = ctx.drawImage(Bkgd, 0, 0 , width, height);
  
   for (var i = 0; i<objects.length; i++) {
-    /*if(objects[i].drawable == true)*/ objects[i].draw();        //Youtube tutorial(https://www.youtube.com/watch?v=APivt7U4WP0)
+    /*if(objects[i].drawable == true)*/ objects[i].draw();      
   }
   hero.draw();
   writeStats();
