@@ -31,7 +31,7 @@ class player {
 
 
     if(wallCollision(this.bbx, this.x, this.y +this.yspd)) {
-    while(!wallCollision(this.bbx, this.x, this.y + Math.sign(this.yspd))){      //Youtube Tutorial(https://www.youtube.com/watch?v=APivt7U4WP0)
+    while(!wallCollision(this.bbx, this.x, this.y + Math.sign(this.yspd))){     
       this.y += Math.sign(this.yspd);
     }
     this.yspd=0;
@@ -43,7 +43,7 @@ class player {
     this.xspd = d* this.mspd;
 
     if(wallCollision(this.bbx, this.x +this.xspd, this.y )) {
-      while(!wallCollision(this.bbx, this.x + Math.sign(this.xspd), this.y)){   //Youtube Tutorial(https://www.youtube.com/watch?v=APivt7U4WP0)
+      while(!wallCollision(this.bbx, this.x + Math.sign(this.xspd), this.y)){  
         this.x += Math.sign(this.xspd);
       }
       this.xspd=0;
